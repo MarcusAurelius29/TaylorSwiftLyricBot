@@ -1,0 +1,19 @@
+html {
+    background-color: #816477;
+}
+
+.text-button {
+    text-align: center;
+}
+
+.text-generator {
+    padding: 18px;
+    width: 152px;
+    font-size: 15px;
+}
+
+.background-photo-div {
+    padding: 110px;
+    background-repeat: no-repeat;
+    
+}
