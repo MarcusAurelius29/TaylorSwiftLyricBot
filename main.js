@@ -38,6 +38,7 @@ async function fetchLyrics(url) {
   {
     console.warn("Album cover not found")
   }
+
   quote.textContent = generatedQuote;
   quote.style.fontSize = "18px";
   quote.style.fontWeight = "bold";
@@ -49,6 +50,7 @@ async function fetchLyrics(url) {
   album.textContent = "Album: " + generatedAlbum;
   album.style.fontSize = "16px";
   album.style.fontWeight = "bold";
+  redirectToSpotify(generatedSong);
 
 } catch (error) {
     console.error("Error fetching data" , error);
@@ -59,4 +61,14 @@ async function fetchLyrics(url) {
 
 }
 
+function redirectToSpotify(songName) {
+  const searchQuery = encodeURIComponent(songName);
+  const spotifyUrl = `https://open.spotify.com/search/${searchQuery}`;
+  const spotifyWindow = window.open(spotifyUrl, "_blank");
 
+    // Play the song automatically after a short delay
+    setTimeout(() => {
+        spotifyWindow.postMessage("play", "*");
+    }, 2000); // Adjust the delay as needed
+
+}
